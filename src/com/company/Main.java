@@ -18,14 +18,15 @@ public class Main {
         } else if (operation == 2){
             System.out.println("How much money do you have");
             int balance = sc.nextInt();
-
             System.out.println("How much money you want to transfer");
             int transfer = sc.nextInt();
             if(balance < transfer){
                 System.out.println("You have insufficient balance");
-            }else{
-                System.out.println("You transferred you money");
+            }else if (balance > transfer || balance == transfer){
+                System.out.println("You transferred" + transfer );
                 System.out.println("Your current balance is: " +(balance-transfer));
+            } else{
+                System.out.println("You transferred you money");
                 System.out.println("Congratulation");
             }
         }else if(operation ==3){
@@ -33,10 +34,17 @@ public class Main {
             int balance = sc.nextInt();
             System.out.println("How much money you want to take");
             int money = sc.nextInt();
-            System.out.println("You got your money :" +money);
-            System.out.println("Your current balance is : " + (balance-money));
+            if(balance<money){
+                System.out.println("Your balance is not enough to do this operation");
+            }
+            else if(balance > money){
+                System.out.println("You got your money :" +money);
+                System.out.println("Your current balance is : " + (balance-money));
+            }else if(balance == money){
+                System.out.println("You got all of your money");
+            }
         }else{
-
+            System.out.println("You got all of your money");
         }
     }
 }
